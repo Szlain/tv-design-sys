@@ -8,5 +8,10 @@ export function JsxButton(props: FuseReactProps) {
     <button>Welcome to FuseReact!</button>
   );
 }
+export function DummyElem(props: FuseReactProps) {
+  return (
+    <button>Dummy Elem that should be treeshaken!</button>
+  );
+}
 
-export default JsxButton;
+

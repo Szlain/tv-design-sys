@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import FuseReact from './fuse';
+import { JsxButton } from './fuse';
 
 describe('FuseReact', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FuseReact />);
+    const { baseElement } = render(<JsxButton />);
     expect(baseElement).toBeTruthy();
   });
 });

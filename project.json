@@ -4,6 +4,26 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "executor": "@nrwl/web:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/fuse",
+        "tsConfig": "libs/fuse/tsconfig.lib.json",
+        "project": "libs/fuse/package.json",
+        "entryFile": "libs/fuse/src/index.ts",
+        "external": ["react/jsx-runtime"],
+        "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/fuse/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
@@ -12,12 +32,6 @@
       }
     },
     "test": {
-      "executor": "@nrwl/workspace:run-commands",
-      "options": {
-          "command": "echo 'do the tests properly for fuse'"
-      }
-    },
-    "fixme": {
       "executor": "@nrwl/jest:jest",
       "outputs": ["coverage/libs/fuse"],
       "options": {
